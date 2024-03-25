@@ -10,12 +10,6 @@ from sklearn.model_selection import KFold
 import matplotlib.pyplot as plt
 from tensorflow.keras.layers import Input
 
-# make a prediction for a new image.
-import matplotlib.image as mpimg
-from keras.preprocessing.image import load_img
-from keras.preprocessing.image import img_to_array
-from keras.models import load_model
-
 def load_dataset(folder_path):
     images = []
     labels = []
@@ -102,7 +96,7 @@ def evaluate_model(dataX, dataY, n_folds=5):
         print('> %.3f' % (acc * 100.0))
 
         # Save model
-    #    model.save('final_model.h5')  # Save the model for future use
+        #model.save('final_model.h5')  # Save the model for future use
         model.save('my_model.keras')  # Sauvegarde dans le format natif Keras
 
         scores.append(acc)
@@ -142,7 +136,7 @@ def loss_summary(histories):
 
 
 
-def final():
+"""def final():
     # Load dataset
     trainX, trainY, testX, testY = load_dataset(folder_path)
 
@@ -156,7 +150,7 @@ def final():
     accuracy_summary(histories)
     loss_summary(histories)
 
-
-folder_path = "E:\\data"
+"""
+#folder_path = "E:\\data"
 # Call final() function to execute the entire process
-final()
+#final()
