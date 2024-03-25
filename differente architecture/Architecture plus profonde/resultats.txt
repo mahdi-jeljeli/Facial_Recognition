@@ -1,0 +1,5 @@
+Le modèle a obtenu une précision de 37.5% sur l'ensemble de données de test.
+Le modèle a obtenu une précision de 79.688% sur l'ensemble de données de test.
+Le modèle a obtenu une précision de 34.375% sur l'ensemble de données de test.
+Le modèle a obtenu une précision de 71.875% sur l'ensemble de données de test.
+Le modèle a obtenu une précision de 53.125% sur l'ensemble de données de test.

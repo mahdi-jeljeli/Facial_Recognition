@@ -1,0 +1,55 @@
+Nous utilisons plusieurs modèles pour la reconnaissance faciale car différents architectures peuvent avoir des performances différentes sur notre ensemble de données. En explorant diverses architectures, nous cherchons à identifier celle qui offre la meilleure précision et généralisation pour notre tâche spécifique.
+
+
+Architecture simple :
+
+Convolution 2D (32 filtres, taille du noyau 3x3, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Aplatir
+Couche Dense (128 neurones, activation ReLU)
+Couche de sortie Dense (40 neurones pour les classes, activation softmax)
+
+
+Architecture plus profonde :
+
+Convolution 2D (32 filtres, taille du noyau 3x3, activation ReLU)
+Convolution 2D (32 filtres, taille du noyau 3x3, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Aplatir
+Couche Dense (128 neurones, activation ReLU)
+Couche de sortie Dense (40 neurones pour les classes, activation softmax)
+
+
+Architecture avec des couches de larges convolutions :
+
+Convolution 2D (64 filtres, taille du noyau 5x5, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Convolution 2D (128 filtres, taille du noyau 5x5, activation ReLU)
+MaxPooling 2D (taille de la fenêtre 2x2)
+Aplatir
+Couche Dense (256 neurones, activation ReLU)
+Couche de sortie Dense (40 neurones pour les classes, activation softmax)
+
+
+Architecture avec des couches résiduelles :
+
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+Ajouter une connexion résiduelle
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+Convolution 2D (64 filtres, taille du noyau 3x3, activation ReLU)
+Ajouter une connexion résiduelle
+MaxPooling 2D (taille de la fenêtre 2x2)
+Aplatir
+Couche Dense (128 neurones, activation ReLU)
+Couche de sortie Dense (40 neurones pour les classes, activation softmax)
+
+
+
+
+
