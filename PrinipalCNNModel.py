@@ -11,6 +11,18 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.layers import Input
 
 def load_dataset(folder_path):
+    """
+        Loads the dataset from the specified folder path.
+
+        Parameters:
+        - folder_path (str): Path to the folder containing the dataset.
+
+        Returns:
+        - train_images (numpy.ndarray): Array of training images.
+        - trainY (numpy.ndarray): Array of training labels.
+        - test_images (numpy.ndarray): Array of testing images.
+        - testY (numpy.ndarray): Array of testing labels.
+    """
     images = []
     labels = []
     for subdir, _, files in os.walk(folder_path):
@@ -50,6 +62,18 @@ def load_dataset(folder_path):
 
 
 def prepare_pixels(train, test):
+    """
+       Preprocesses the pixel values of the images.
+
+       Parameters:
+       - train (numpy.ndarray): Array of training images.
+       - test (numpy.ndarray): Array of testing images.
+
+       Returns:
+       - train_norm (numpy.ndarray): Preprocessed training images.
+       - test_norm (numpy.ndarray): Preprocessed testing images.
+    """
+
     # Convert from integers to floats
     train_norm = train.astype('float32')
     test_norm = test.astype('float32')
@@ -60,7 +84,14 @@ def prepare_pixels(train, test):
 
     # Return normalized images
     return train_norm, test_norm
+
 def cnn_model():
+    """
+       Defines the CNN model architecture.
+
+       Returns:
+       - model (Sequential): CNN model.
+    """
     model = Sequential()
     model.add(Input(shape=(28, 28, 1)))  # Ajouter une couche Input(shape)
     model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform'))
@@ -75,9 +106,20 @@ def cnn_model():
     model.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['accuracy'])
     return model
 
+def evaluate_model(dataX, dataY, n_folds):
+    """
+       Evaluates the CNN model using k-fold cross-validation.
 
+       Parameters:
+       - dataX (numpy.ndarray): Input images.
+       - dataY (numpy.ndarray): Labels.
+       - n_folds (int): Number of folds for cross-validation.
 
-def evaluate_model(dataX, dataY, n_folds=5):
+       Returns:
+       - scores (list): List of accuracy scores for each fold.
+       - histories (list): List of training histories for each fold.
+    """
+
     scores, histories = list(), list()
 
     # Prepare cross-validation
@@ -107,6 +149,12 @@ def evaluate_model(dataX, dataY, n_folds=5):
 
 
 def accuracy_summary(histories):
+    """
+       Plots the classification accuracy (la précision) for each fold.
+
+       Parameters:
+       - histories (list): List of training histories.
+    """
     num_plots = min(len(histories), 4)  # Limiter le nombre de sous-graphiques à 4
     plt.figure(figsize=(10, 6))
     for i in range(num_plots):
@@ -121,7 +169,13 @@ def accuracy_summary(histories):
     plt.show()
 
 def loss_summary(histories):
-    num_plots = min(len(histories), 4)  # Limiter le nombre de sous-graphiques à 4
+    """
+       Plots the loss (la perte) for each fold.
+
+       Parameters:
+       - histories (list): List of training histories.
+    """
+    num_plots = min(len(histories), 4)
     plt.figure(figsize=(10, 6))
     for i in range(num_plots):
         plt.subplot(2, 2, i+1)
@@ -136,7 +190,8 @@ def loss_summary(histories):
 
 
 
-"""def final():
+"""
+def final():
     # Load dataset
     trainX, trainY, testX, testY = load_dataset(folder_path)
 
@@ -149,7 +204,6 @@ def loss_summary(histories):
     # Visualize accuracy and loss summaries
     accuracy_summary(histories)
     loss_summary(histories)
-
 """
 #folder_path = "E:\\data"
 # Call final() function to execute the entire process

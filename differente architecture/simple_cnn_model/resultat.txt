@@ -4,4 +4,8 @@ Pour le troisième pli de validation, la précision est de 20.312%.
 Pour le quatrième pli de validation, la précision est de 21.875%.
 Pour le cinquième pli de validation, la précision est de 37.500%.
 
-Ces valeurs représentent la proportion d'images correctement classées par rapport au nombre total d'images dans le jeu de données de validation pour chaque pli. Une précision plus élevée indique une meilleure performance du modèle. la précision semble varier d'un pli à l'autre, ce qui peut être dû à plusieurs facteurs tels que la taille du jeu de données, la complexité du modèle, les hyperparamètres choisis, etc.
+Ces valeurs représentent la proportion d'images correctement classées
+par rapport au nombre total d'images dans le jeu de données de validation pour chaque pli.
+Une précision plus élevée indique une meilleure performance du modèle. la précision semble
+varier d'un pli à l'autre, ce qui peut être dû à plusieurs facteurs tels que la taille du jeu de données,
+la complexité du modèle, les hyperparamètres choisis, etc.

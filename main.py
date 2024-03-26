@@ -1,16 +1,21 @@
-import os
+'''
+Ce fichier contient le code principal pour l'entraînement d'un modèle de réseau de neurones
+convolutionnel (CNN) pour la classification d'images. Il inclut les fonctions pour charger
+les données, prétraiter les images, définir l'architecture du CNN, évaluer le modèle avec
+une validation croisée, et visualiser les résultats d'entraînement. De plus, il recherche
+la meilleure valeur pour le nombre de plis dans la validation croisée.
+'''
+
 import numpy as np
-from PrinipalCNNModel import load_dataset, evaluate_model, accuracy_summary, loss_summary
+from PrinipalCNNModel import evaluate_model, accuracy_summary, loss_summary, load_dataset, prepare_pixels
 
-#Ce fichier contient le code principal pour l'entraînement d'un modèle de réseau de neurones
-#convolutionnel (CNN) pour la classification d('images. Il inclut les fonctions pour charger '
-#les données, prétraiter les images, définir l''')architecture du CNN,
-# évaluer le modèle avec une validation croisée, et visualiser les résultats d('entraînement. De plus, '
-# 'il recherche la meilleure valeur pour le nombre de plis dans la validation croisée.)
-
-# Charger les données en utilisant la fonction load_dataset du fichier principal
 folder_path = "E:\\data"
+
+# Chargement des données
 trainX, trainY, testX, testY = load_dataset(folder_path)
+
+# Prepare pixels
+trainX, testX = prepare_pixels(trainX, testX)
 
 # Liste des valeurs de n_folds à tester
 n_folds_list = [3, 5, 7, 10]

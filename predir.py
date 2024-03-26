@@ -65,9 +65,12 @@ classes_dict = {
     39: "Personne 40",
 }
 # Faites une prédiction avec votre modèle CNN sur une image spécifique
-img = load_image('E:\\data\\35\\1.jpg')
+img = load_image('E:\\data\\30\\4.jpg')
 # Faire une prédiction avec votre modèle CNN
-predictions = model.predict(img)
+#predictions = model.predict(img)
+#predictions = model.predict_classes(img)
+predictions = model.predict_step(img)
+print(predictions)
 
 # Obtenir l'indice de la classe avec la probabilité la plus élevée
 predicted_class_index = np.argmax(predictions)
